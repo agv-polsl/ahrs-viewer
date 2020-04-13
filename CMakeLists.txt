@@ -3,7 +3,11 @@ project(ahrs-viewer LANGUAGES CXX)
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
-add_executable(ahrs-viewer src/main.cpp)
+add_executable(ahrs-viewer
+    src/main.cpp
+    src/ahrs_text_buffer.cpp
+    src/sensor_from_text.cpp
+)
 
 target_include_directories(ahrs-viewer
     PUBLIC
