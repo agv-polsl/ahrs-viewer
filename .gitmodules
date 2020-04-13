@@ -1,3 +1,3 @@
 [submodule "lib/ekf-ahrs"]
 	path = lib/ekf-ahrs
-	url = git@github.com:agv-polsl/ekf-ahrs.git
+	url = https://github.com/agv-polsl/ekf-ahrs.git
