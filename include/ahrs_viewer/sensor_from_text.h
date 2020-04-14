@@ -6,7 +6,7 @@
 
 namespace txtsens {
 
-class SensorFromText : ahrs::Sensor {
+class SensorFromText : public ahrs::Sensor {
    public:
     SensorFromText(AhrsTextBuffer& buffer) : buffer{buffer} {}
 
@@ -14,14 +14,22 @@ class SensorFromText : ahrs::Sensor {
     AhrsTextBuffer& buffer;
 };
 
-class GyroFromText : SensorFromText {
-   ahrs::sensor_readout read() override { return buffer.get_gyro_readout(); }
+class GyroFromText : public SensorFromText {
+   public:
+    GyroFromText(AhrsTextBuffer& buffer) : SensorFromText(buffer) {}
+    ahrs::sensor_readout read() override { return buffer.get_gyro_readout(); }
 };
-class AccFromText : SensorFromText {
-   ahrs::sensor_readout read() override { return buffer.get_acc_readout(); }
+
+class AccFromText : public SensorFromText {
+   public:
+    AccFromText(AhrsTextBuffer& buffer) : SensorFromText(buffer) {}
+    ahrs::sensor_readout read() override { return buffer.get_acc_readout(); }
 };
-class MagFromText : SensorFromText {
-   ahrs::sensor_readout read() override { return buffer.get_mag_readout(); }
+
+class MagFromText : public SensorFromText {
+   public:
+    MagFromText(AhrsTextBuffer& buffer) : SensorFromText(buffer) {}
+    ahrs::sensor_readout read() override { return buffer.get_mag_readout(); }
 };
 
 }  // namespace txtsens
