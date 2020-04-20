@@ -26,9 +26,10 @@ void AhrsTextBuffer::parse_readout(std::string readout) {
     std::transform(splits.begin(), splits.end(), numerized.begin(),
                    [](const std::string& s) { return std::stod(s); });
 
-    gyror = ahrs::sensor_readout{numerized[0], numerized[1], numerized[2]};
-    accr = ahrs::sensor_readout{numerized[3], numerized[4], numerized[5]};
-    magr = ahrs::sensor_readout{numerized[6], numerized[7], numerized[8]};
+    dt = numerized[0];
+    gyror = ahrs::sensor_readout{numerized[1], numerized[2], numerized[3]};
+    accr = ahrs::sensor_readout{numerized[4], numerized[5], numerized[6]};
+    magr = ahrs::sensor_readout{numerized[7], numerized[8], numerized[9]};
 }
 
 bool AhrsTextBuffer::fetch() {

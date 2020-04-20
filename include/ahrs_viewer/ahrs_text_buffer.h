@@ -15,10 +15,12 @@ class AhrsTextBuffer {
     ahrs::sensor_readout get_gyro_readout();
     ahrs::sensor_readout get_acc_readout();
     ahrs::sensor_readout get_mag_readout();
+    double get_dt(){return dt;};
 
    private:
     void parse_readout(std::string readout);
 
+    double dt;
     std::istream& input;
     ahrs::sensor_readout gyror;
     ahrs::sensor_readout accr;
