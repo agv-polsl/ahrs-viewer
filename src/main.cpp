@@ -14,8 +14,8 @@ int main() {
     while (inbuffer.fetch()) {
         ahrs.set_dt(inbuffer.get_dt());
         auto readout = ahrs.update();
-        std::cout << "x: " << readout.x << '\n';
-        std::cout << "y: " << readout.y << '\n';
+        std::cout << "x: " << readout.x << '\t';
+        std::cout << "y: " << readout.y << '\t';
         std::cout << "z: " << readout.z << '\n';
     }
 
